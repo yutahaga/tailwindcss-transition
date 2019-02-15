@@ -27,5 +27,5 @@ This configuration would create the following classes:
 
 ```css
 .transition-ease-in { transition-timing-function: ease-in }
-.transition-fast { transition-duration: 100 }
+.transition-fast { transition-duration: 0.1s }
 ```

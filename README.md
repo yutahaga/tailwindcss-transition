@@ -1,1 +1,30 @@
-# tailwindcss-transition
+# Transition Tailwind Plugin
+
+## Installation
+Add this plugin to your project:
+
+# Install via npm
+npm install yutahaga/tailwindcss-transition
+
+
+## Usage
+
+```js
+require('tailwindcss-transition')({
+  easings: {
+    'ease-in': 'ease-in'
+  },
+  durations: {
+    fast: 100
+  },
+  prefix: 'transition-',
+  variants: []
+})
+```
+
+This configuration would create the following classes:
+
+```css
+.transition-ease-in { transition-timing-function: ease-in }
+.transition-fast { transition-duration: 100 }
+```

@@ -11,7 +11,7 @@ npm install yutahaga/tailwindcss-transition
 ## Usage
 
 ```js
-require('tailwindcss-transition')({
+require('@yutahaga/tailwindcss-transition')({
   easings: {
     'ease-in': 'ease-in'
   },

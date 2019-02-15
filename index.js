@@ -27,7 +27,7 @@ module.exports = function({ durations, easings, prefix, variants }) {
       const durationValue = durations[durationName]
       const name = e(`${prefix}${durationName}`)
       utilities[`.${name}`] = {
-        'transition-duration': `${durationValue}` // toString
+        'transition-duration': `${durationValue / 100}s`
       }
     })
     Object.keys(easings).forEach(easingName => {

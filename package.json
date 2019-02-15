@@ -1,5 +1,5 @@
 {
-  "name": "tailwindcss-transition",
+  "name": "@yutahaga/tailwindcss-transition",
   "version": "1.0.0",
   "description": "Transition plugin for tailwindcss framework",
   "main": "index.js",

@@ -4,8 +4,9 @@
 Add this plugin to your project:
 
 # Install via npm
+```sh
 npm install yutahaga/tailwindcss-transition
-
+```
 
 ## Usage
 

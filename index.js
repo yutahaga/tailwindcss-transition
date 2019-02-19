@@ -44,7 +44,7 @@ module.exports = function({ durations, easings, prefixes, variants }) {
         utilities[`.${name}`] = {
           [`${key}-timing-function`]: easingValue
         }
-      }
+      })
     })
     addUtilities(utilities, variants)
   }

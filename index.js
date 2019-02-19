@@ -1,4 +1,7 @@
-const defaultPrefix = 'transition-'
+const defaultPrefixes = {
+  transition: 'transition-',
+  animation: 'animation-'
+}
 const defaultDurations = {
   faster: 100,
   fast: 200,
@@ -15,26 +18,32 @@ const defaultEasings = {
   standard: 'cubic-bezier(0.4, 0, 0.2, 1)'
 }
 
-module.exports = function({ durations, easings, prefix, variants }) {
+module.exports = function({ durations, easings, prefixes, variants }) {
   durations = durations || defaultDurations
   easings = easings || defaultEasings
-  prefix = prefix || defaultPrefix
+  prefixes = Object.assign({}, defaultPrefixes, prefixes || {})
   variants = variants || []
 
   return function({ addUtilities, e }) {
     const utilities = {}
     Object.keys(durations).forEach(durationName => {
       const durationValue = durations[durationName]
-      const name = e(`${prefix}${durationName}`)
-      utilities[`.${name}`] = {
-        'transition-duration': `${durationValue / 1000}s`
+      Object.keys(prefixes).forEach(key => {
+        const prefix = prefixes[key]
+        const name = e(`${prefix}${durationName}`)
+        utilities[`.${name}`] = {
+          [`${key}-duration`]: `${durationValue / 1000}s`
+        }
       }
     })
     Object.keys(easings).forEach(easingName => {
       const easingValue = easings[easingName]
-      const name = e(`${prefix}${easingName}`)
-      utilities[`.${name}`] = {
-        'transition-timing-function': easingValue
+      Object.keys(prefixes).forEach(key => {
+        const prefix = prefixes[key]
+        const name = e(`${prefix}${easingName}`)
+        utilities[`.${name}`] = {
+          [`${key}-timing-function`]: easingValue
+        }
       }
     })
     addUtilities(utilities, variants)
